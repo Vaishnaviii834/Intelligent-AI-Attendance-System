@@ -1,116 +1,71 @@
-\# Intelligent AI Attendance System
+# Intelligent AI Attendance System
 
+This is a Python-based attendance system that uses face recognition to automatically mark attendance.
 
+The project uses a CNN model built with PyTorch for face classification and OpenCV for detecting faces through the webcam.
 
-An AI-powered attendance management system that uses \*\*Convolutional Neural Networks (CNN), PyTorch, and OpenCV\*\* to recognize faces through a webcam and automatically record attendance.
+## Features
 
+- Face detection using OpenCV
+- Face recognition using CNN
+- Real-time webcam recognition
+- Unknown face detection using confidence threshold
+- Automatic attendance marking
+- Prevents duplicate attendance on the same day
+- Attendance stored in CSV file
+- Simple desktop dashboard using Tkinter
+- Confusion matrix for model evaluation
 
+## Technologies Used
 
-\## Features
+- Python
+- PyTorch
+- Torchvision
+- OpenCV
+- Scikit-learn
+- NumPy
+- Matplotlib
+- Tkinter
 
+## How the Project Works
 
+1. The webcam captures the video.
+2. OpenCV detects the face from the video.
+3. The detected face is resized and converted into a format suitable for the CNN.
+4. The CNN predicts the person.
+5. The prediction confidence is checked.
+6. If the person is recognized, attendance is marked.
+7. If the face is not recognized with enough confidence, it is shown as `Unknown`.
+8. Attendance is saved in `attendance.csv`.
+9. The attendance dashboard displays the recorded entries.
 
-\- Real-time face detection using OpenCV
+## CNN Model
 
-\- CNN-based face recognition using PyTorch
+The CNN contains:
 
-\- Confidence-based unknown-person filtering
+- 3 convolutional layers
+- ReLU activation
+- Max pooling
+- Fully connected layers
+- Dropout
 
-\- Automatic attendance recording
+The trained model is saved in the `models` folder.
 
-\- Prevents duplicate attendance for the same person on the same date
+## Model Result
 
-\- CSV-based attendance storage
+The current CNN model achieved **74% accuracy** on the test split used in this project.
 
-\- Desktop attendance dashboard using Tkinter
+A confusion matrix is also generated to see which classes are being confused by the model.
 
-\- CNN model evaluation with confusion matrix
-
-\- Train and test scripts included
-
-
-
-\## Technologies Used
-
-
-
-\- Python
-
-\- PyTorch
-
-\- Torchvision
-
-\- OpenCV
-
-\- Scikit-learn
-
-\- NumPy
-
-\- Matplotlib
-
-\- Tkinter
-
-\- CSV
-
-
-
-\## Project Structure
-
-
+## Project Structure
 
 ```text
-
 Intelligent-AI-Attendance-System/
-
 │
-
 ├── dataset/
-
-│   ├── Student\_A/
-
-│   ├── Student\_B/
-
-│   ├── Student\_C/
-
-│   └── Student\_D/
-
-│
-
 ├── models/
-
-│   ├── best\_cnn\_attendance\_model.pth
-
-│   ├── cnn\_attendance\_model.pth
-
-│   └── attendance\_model.pkl
-
-│
-
 ├── src/
-
-│   ├── cnn\_model.py
-
-│   ├── train\_cnn.py
-
-│   ├── evaluate\_cnn.py
-
-│   ├── cnn\_webcam\_recognition.py
-
-│   ├── cnn\_webcam\_unknown\_test.py
-
-│   ├── attendance.py
-
-│   ├── attendance\_dashboard.py
-
-│   └── view\_attendance.py
-
-│
-
 ├── attendance.csv
-
 ├── requirements.txt
-
-├── .gitignore
-
-└── app.py
-
+├── README.md
+└── .gitignore
